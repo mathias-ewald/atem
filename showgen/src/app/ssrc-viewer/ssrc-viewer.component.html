@@ -1,0 +1,7 @@
+<div class="viewport">
+    <app-box *ngFor="let b of layout?.boxes; let i = index" 
+        [model]="b"
+        [color]="colors[i % colors.length]"
+        [style.z-index]="100 - i"
+    ></app-box>
+</div>

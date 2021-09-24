@@ -1,0 +1,72 @@
+<mat-checkbox [(ngModel)]="model.enabled">Enabled</mat-checkbox>
+
+<div fxLayout="column" fxLayoutAlign="start stretch">
+    <span>Position</span>
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <span>X:</span>
+        <mat-slider fxFlex="1 1 100%" [thumbLabel]="true"
+            [min]="posMin" [max]="posMax" [step]="posStep"
+            [(ngModel)]="model.position.x"
+            (input)="posXChange($event)">
+        </mat-slider>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <span>Y:</span>
+        <mat-slider fxFlex="1 1 100%" [thumbLabel]="true"
+            [min]="posMin" [max]="posMax" [step]="posStep"
+            [(ngModel)]="model.position.y"
+            (input)="posYChange($event)">
+        </mat-slider>
+    </div>
+</div>
+
+<div fxLayout="column" fxLayoutAlign="start stretch">
+    <span>Size</span>
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <mat-slider fxFlex="1 1 100%" [thumbLabel]="true"
+            [min]="sizeMin" [max]="sizeMax" [step]="sizeStep"
+            [value]="model.size.factor"
+            (input)="sizeChange($event)">
+        </mat-slider>
+    </div>
+</div>
+
+<div fxLayout="column" fxLayoutAlign="start stretch">
+    <mat-checkbox [(ngModel)]="model.enableCrop">Crop</mat-checkbox>
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <span>T:</span>
+        <mat-slider fxFlex="1 1 100%" [thumbLabel]="true"
+            [disabled]="model.enableCrop === false"
+            [min]="cropMin" [max]="cropMax" [step]="cropStep"
+            (value)="model.crop?.top || 0"
+            (input)="cropTopChange($event)">
+        </mat-slider>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <span>R:</span>
+        <mat-slider fxFlex="1 1 100%" [thumbLabel]="true"
+            [disabled]="model.enableCrop === false"
+            [min]="cropMin" [max]="cropMax" [step]="cropStep"
+            (value)="model.crop?.right || 0"
+            (input)="cropRightChange($event)">
+        </mat-slider>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <span>B:</span>
+        <mat-slider fxFlex="1 1 100%" [thumbLabel]="true"
+            [disabled]="model.enableCrop === false"
+            [min]="cropMin" [max]="cropMax" [step]="cropStep"
+            (value)="model.crop?.bottom || 0"
+            (input)="cropBottomChange($event)">
+        </mat-slider>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <span>L:</span>
+        <mat-slider fxFlex="1 1 100%" [thumbLabel]="true"
+            [disabled]="model.enableCrop === false"
+            [min]="cropMin" [max]="cropMax" [step]="cropStep"
+            (value)="model.crop?.left || 0"
+            (input)="cropLeftChange($event)">
+        </mat-slider>
+    </div>
+</div>

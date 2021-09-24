@@ -1,0 +1,21 @@
+
+<div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="20px">
+    <app-ssrc-viewer fxFlex="1 1 100%" [layout]="layout"></app-ssrc-viewer>
+
+    <div fxFlex="0 0 400px" fxLayout="column" style="padding-top: 20px;">
+        <mat-form-field *ngIf="layout" appearance="outline" floatLabel="always">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Layout Name" [(ngModel)]="layout.name">
+        </mat-form-field>
+    
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let b of layout?.boxes">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>{{ b.name }}</mat-panel-title>
+                    <mat-panel-description></mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-box-editor [model]="b"></app-box-editor>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>    
+</div>

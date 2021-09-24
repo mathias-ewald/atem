@@ -1,0 +1,13 @@
+
+
+<div class="overlay"
+    [style.padding-top]="model?.enableCrop === true ? 'calc(' + cropTop + ' * 0.5)' : 0"
+    [style.padding-right]="model?.enableCrop === true ? 'calc(' + cropRight + ' * 1)' : 0"
+    [style.padding-bottom]="model?.enableCrop === true ? 'calc(' + cropBottom + ' * 0.5)' : 0"
+    [style.padding-left]="model?.enableCrop === true ? 'calc(' + cropLeft + ' * 1)' : 0"
+>
+    <div class="title" fxLayout="column" fxLayoutAlign="center center">
+        <span class="name">{{ model?.name }}</span>
+        <span class="source">{{ model?.source }}</span>
+    </div>
+</div>
